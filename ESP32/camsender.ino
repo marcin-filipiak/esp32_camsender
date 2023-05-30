@@ -1,5 +1,7 @@
 /*
-  BOARD: AI-Thinker ESP32-CAM
+ * Author: Marcin Filipiak
+ * Licence: GNU-GPL
+ * Board: AI-Thinker ESP32-CAM
 */
 
 #include <Arduino.h>
@@ -13,11 +15,9 @@
 BluetoothSerial SerialBT;
 
 //String serverName = "192.168.1.XXX";   // REPLACE WITH SERVER API IP ADDRESS
-String serverName = "api.noweenergie.org";   // OR REPLACE WITH YOUR DOMAIN NAME SERVER API
-
-String serverPath = "/index.php?EspCam/send/";
-
-const int serverPort = 80;
+String serverName = "api.filipiak.tech";   // OR REPLACE WITH YOUR DOMAIN NAME SERVER API
+String serverPath = "/camsender/index.php?send/";  //REPLACE WITH YOUR PATH, "/" before and at the end is important!
+const int serverPort = 80; //DEFAULT HTTP IS ON PORT 80
 
 struct {
   char ssid[32] = "";  //wifi ssid
@@ -48,7 +48,7 @@ WiFiClient client;
 #define PCLK_GPIO_NUM     22
 
 const int timerInterval = 30000;    // time between each HTTP POST image
-unsigned long previousMillis = 0;   // last time image was sent
+unsigned long previousMillis = 30000;   // last time image was sent
 
 
 ///////////////////////////////////////////
@@ -85,7 +85,7 @@ void setup() {
   EEPROM.get(100,data); //read data config from EEPROM
 
   Serial.begin(115200);
-  SerialBT.begin("ESP32_CAM"); 
+  SerialBT.begin("CAMSENDER"); 
    
   WiFi.mode(WIFI_STA);
   Serial.println();
@@ -99,7 +99,7 @@ void setup() {
     contry++;
   }
   Serial.println();
-  Serial.print("ESP32-CAM IP Address: ");
+  Serial.print("ESP32 IP Address: ");
   Serial.println(WiFi.localIP());
 
   camera_config_t config;
@@ -253,7 +253,8 @@ String sendPhoto() {
   Serial.println("Connecting to server: " + serverName);
 
   if (client.connect(serverName.c_str(), serverPort)) {
-    Serial.println("Connection successful!");    
+    Serial.println("Connection successful!");
+    Serial.println("Posting to: "+ serverPath + data.camera_id);
     String head = "--RandomNerdTutorials\r\nContent-Disposition: form-data; name=\"imageFile\"; filename=\"esp32-cam.jpg\"\r\nContent-Type: image/jpeg\r\n\r\n";
     String tail = "\r\n--RandomNerdTutorials--\r\n";
 
@@ -305,6 +306,7 @@ String sendPhoto() {
     }
     Serial.println();
     client.stop();
+    Serial.println("Server said:");
     Serial.println(getBody);
   }
   else {

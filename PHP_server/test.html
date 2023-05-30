@@ -1,0 +1,16 @@
+<html>
+
+<h1>Camsender - check server api</h1>
+<p>This form tests the API on your server. Choose a JPG image from your disk and submit it. 
+It will be sent as a camera with ID 'test'. If you click <a href="index.php?image/test">on this link</a> after submitting, 
+your test image should be displayed.</p>
+
+<form action="index.php?send/test" method="POST" enctype="multipart/form-data">
+  <label for="imageFile">Select jpg file to send:</label>
+  <input type="file" id="imageFile" name="imageFile" accept="image/*">
+  <input type="submit" value="Send">
+</form>
+
+
+</html>
+
