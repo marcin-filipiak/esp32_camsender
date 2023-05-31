@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/marcin-filipiak/esp32_camsender/main/doc/esp32.jpg" width="300px">
 </p>
 
-Software for ESP32-CAM that allows camera configuration via Bluetooth terminal. The camera sends photos to a web server using the POST method, and the data is received by a PHP script.
+Software for ESP32-CAM that enables camera configuration via a Bluetooth terminal. The camera transmits photos to a web server using the POST method, and the data is received by a PHP script.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/marcin-filipiak/esp32_camsender/main/doc/data_flow.jpg">
