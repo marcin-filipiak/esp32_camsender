@@ -1,8 +1,11 @@
 # esp32_camsender
 Software for ESP32-CAM that allows camera configuration via Bluetooth terminal. The camera sends photos to a web server using the POST method, and the data is received by a PHP script.
 
+<p align="center">
+  <img src="https://github.com/marcin-filipiak/esp32_camsender/doc/data_flow.jpg">
+</p>
 
-CAMERA. 
+###CAMERA. 
 
 If you are using your own server to store images, before compiling the code, change lines:
 
@@ -12,7 +15,7 @@ String serverPath = "/camsender/index.php?send/";  //REPLACE WITH YOUR PATH, "/"
 
 to the address of your server. If the server is running on a local network, you can use its fixed IP address in that network. Once you compile this code, you can load it onto all your cameras. The remaining configuration, such as the Wi-Fi network name and password, can be done by connecting to the camera via Bluetooth. I recommend using the 'Serial Bluetooth Terminal' application on Android. Use "LF" for a new line in Serial Bluetooth Terminal - look at "settings". After pairing the camera, connect to it. Sending the character 'h' will display the menu. The operation is simple and intuitive — use it like a terminal.
 
-SERVER. 
+###SERVER. 
 
 If you decide to install your own server for storing images from cameras, Apache with PHP support will be required. On the server, create a folder named 'camsender' and copy the files from the PHP_server folder into it. For example, the address will look like: 
 http://api.filipiak.tech/camsender/index.php
