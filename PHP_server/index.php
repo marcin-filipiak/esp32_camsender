@@ -24,6 +24,10 @@ class EspCamController {
             
             // Sprawdzenie, czy plik istnieje
             if (file_exists($filePath)) {
+		header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
+		header('Pragma: no-cache'); // HTTP 1.0.
+		header('Expires: 0'); // Proxies.
+
                 // Ustawienie nagłówka Content-Type dla obrazka
                 header('Content-Type: image/jpeg');
                 
