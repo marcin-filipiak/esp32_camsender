@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/marcin-filipiak/esp32_camsender/main/doc/esp32.jpg" width="300px">
 </p>
 
-Software for ESP32-CAM that allows camera configuration via Bluetooth terminal. The camera sends photos to a web server using the POST method, and the data is received by a PHP script.
+Software for ESP32-CAM that enables camera configuration via a Bluetooth terminal. The camera transmits photos to a web server using the POST method, and the data is received by a PHP script.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/marcin-filipiak/esp32_camsender/main/doc/data_flow.jpg">
@@ -20,7 +20,7 @@ String serverName = "api.filipiak.tech";   // OR REPLACE WITH YOUR DOMAIN NAME S
 String serverPath = "/camsender/index.php?send/";  //REPLACE WITH YOUR PATH, "/" before and at the end is important
 ```
 
-to the address of your server. If the server is running on a local network, you can use its fixed IP address in that network. Once you compile this code, you can load it onto all your cameras. The remaining configuration, such as the Wi-Fi network name and password, can be done by connecting to the camera via Bluetooth. I recommend using the 'Serial Bluetooth Terminal' application on Android. Use "LF" for a new line in Serial Bluetooth Terminal - look at "settings". After pairing the camera, connect to it. Sending the character 'h' will display the menu. The operation is simple and intuitive — use it like a terminal.
+to the address of your server. If the server is running on a local network, you can use its fixed IP address in that network. Once you compile this code, you can load it onto all your cameras. The remaining configuration, such as the Wi-Fi network name and password, can be done by connecting to the camera via Bluetooth. I recommend using the '<a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal&hl=pl&gl=US" target="_blank">Serial Bluetooth Terminal</a>' application on Android. Use "LF" for a new line in Serial Bluetooth Terminal - look at "settings". After pairing the camera, connect to it. Sending the character 'h' will display the menu. The operation is simple and intuitive — use it like a terminal.
 
 ## SERVER
 
