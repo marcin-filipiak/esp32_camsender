@@ -16,7 +16,7 @@ You need own server to store images.
 If the server is running on a local network, you can use it.
 The remaining configuration, such as the Wi-Fi network name and password, can be done by connecting to the camera via Bluetooth. 
 I recommend using the: https://github.com/marcin-filipiak/IoT_Configurator application on Android.
-There you candownload apk file and install on your phone. Also you should find this app in GooglePlay. 
+There you can download apk file and install on your phone. Also you should find this app in GooglePlay. 
 
 ## SERVER
 
