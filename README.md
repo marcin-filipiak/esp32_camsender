@@ -12,15 +12,11 @@ Software for ESP32-CAM that enables camera configuration via a Bluetooth termina
 
 ## CAMERA 
 
-You need own server to store images, before compiling the code, change lines:
-
-```
-//String serverName = "192.168.1.XXX";   // REPLACE WITH SERVER API IP ADDRESS
-String serverName = "api.filipiak.tech";   // OR REPLACE WITH YOUR DOMAIN NAME SERVER API
-String serverPath = "/camsender/index.php?send/";  //REPLACE WITH YOUR PATH, "/" before and at the end is important
-```
-
-to the address of your server. If the server is running on a local network, you can use its fixed IP address in that network. Once you compile this code, you can load it onto all your cameras. The remaining configuration, such as the Wi-Fi network name and password, can be done by connecting to the camera via Bluetooth. I recommend using the '<a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal&hl=pl&gl=US" target="_blank">Serial Bluetooth Terminal</a>' application on Android. Use "LF" for a new line in Serial Bluetooth Terminal - look at "settings". After pairing the camera, connect to it. Sending the character 'h' will display the menu. The operation is simple and intuitive — use it like a terminal.
+You need own server to store images.
+If the server is running on a local network, you can use it.
+The remaining configuration, such as the Wi-Fi network name and password, can be done by connecting to the camera via Bluetooth. 
+I recommend using the: https://github.com/marcin-filipiak/IoT_Configurator application on Android.
+There you candownload apk file and install on your phone. Also you should find this app in GooglePlay. 
 
 ## SERVER
 
