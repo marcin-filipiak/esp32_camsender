@@ -12,7 +12,7 @@ Software for ESP32-CAM that enables camera configuration via a Bluetooth termina
 
 ## CAMERA 
 
-If you are using your own server to store images, before compiling the code, change lines:
+You need own server to store images, before compiling the code, change lines:
 
 ```
 //String serverName = "192.168.1.XXX";   // REPLACE WITH SERVER API IP ADDRESS
