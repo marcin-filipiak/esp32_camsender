@@ -31,4 +31,5 @@ Of course, adjust the address accordingly to match your server's address.
 ## CONFIGURATION
 
 This project using <a href="https://github.com/marcin-filipiak/DeviceConfigJSON" target="_blank">DeviceConfigJSON</a> library,
-you need download this from Arduino Library, and you can use <a href="https://github.com/marcin-filipiak/IoT_Configurator">IoT Configurator</a> (Android app) to config this device.
+you need download this from Arduino Library before compile.
+It let you use <a href="https://github.com/marcin-filipiak/IoT_Configurator">IoT Configurator</a> (Android app) to config this device.
