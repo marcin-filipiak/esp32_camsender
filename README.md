@@ -27,3 +27,8 @@ You can test the server's functionality by opening the test.html page.
 
 The API is very simple. To preview the latest image from a selected camera, enter the address in the format http://api.filipiak.tech/camsender/index.php?image/foobar, where 'foobar' should be replaced with the camera identifier you assigned during configuration. 
 Of course, adjust the address accordingly to match your server's address.
+
+## CONFIGURATION
+
+This project using <a href="https://github.com/marcin-filipiak/DeviceConfigJSON" target="_blank">DeviceConfigJSON</a> library,
+you need download this from Arduino Library, and you can use <a href="https://github.com/marcin-filipiak/IoT_Configurator">IoT Configurator</a> (Android app) to config this device.
