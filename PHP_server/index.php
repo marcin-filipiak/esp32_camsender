@@ -1,5 +1,8 @@
 <?php
 
+//ini_set('display_errors', 1);
+//ini_set('error_reporting', E_ALL);
+
 // Kontroler
 class EspCamController {
     public function send($id_camera) {
@@ -14,6 +17,37 @@ class EspCamController {
 	    else {
 		echo "err";
 	    }
+    }
+
+    public function mjpeg($id_camera) {
+	    $filePath = 'data/' . $id_camera . '.jpg';
+	   
+	    if (!file_exists($filePath)){
+		echo 'Stream not found!';
+		
+	    }
+	    else {
+		    header('Cache-Control: no-cache, no-store, must-revalidate');
+		    header('Pragma: no-cache');
+		    header('Expires: 0');
+		    header('Content-Type: multipart/x-mixed-replace; boundary=--myboundary');
+		
+		    //stream klatek
+		    while (true) {
+		        //jesli plik istnieje
+			if (file_exists($filePath)) {
+				    ob_start();
+				    $imageData = file_get_contents($filePath);
+				    echo "--myboundary\r\n";
+				    echo "Content-Type: image/jpeg\r\n";
+				    echo "Content-Length: " . strlen($imageData) . "\r\n\r\n";
+				    echo $imageData . "\r\n";	
+				    ob_end_flush();
+				    flush();    
+			    }
+		        sleep(3); 
+		    }
+		}
     }
     
     public function image($id_camera) {
@@ -56,12 +90,16 @@ if (isset($routeParts[0])) {
         if ($method === 'send') {
 	    $id_camera = $routeParts[1];
             $controller->send($id_camera);
-        } elseif ($method === 'image') {
+        } 
+	if ($method === 'image') {
 	    $id_camera = $routeParts[1];
             $controller->image($id_camera);
-        } else {
-            echo 'Invalid method!';
-        }
+        } 
+	if ($method === 'mjpeg') {
+            $id_camera = $routeParts[1];
+	    $controller->mjpeg($id_camera);
+	}
+	
 } 
 else {
    echo 'Invalid!';
