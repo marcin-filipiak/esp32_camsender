@@ -26,6 +26,9 @@ On the server, the images will be stored in the 'data' folder. Remember to set w
 You can test the server's functionality by opening the test.html page.
 
 The API is very simple. To preview the latest image from a selected camera, enter the address in the format http://api.filipiak.tech/camsender/index.php?image/foobar, where 'foobar' should be replaced with the camera identifier you assigned during configuration. 
+
+You can also view live stream in mjpeg. Enter the address in the format http://api.filipiak.tech/camsender/index.php?image/foobar, where 'foobar' should be replaced with the camera identifier you assigned during configuration. 
+
 Of course, adjust the address accordingly to match your server's address.
 
 ## CONFIGURATION
